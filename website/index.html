@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexionSnipe - Crypto Trading Bot | Snipe, Track & Trade on Solana, Ethereum & BSC</title>
+    <meta name="description" content="NexionSnipe is a powerful Telegram crypto trading bot. Snipe new tokens, track whale wallets, monitor prices, and trade across Solana, Ethereum, and BNB Chain. Free to use.">
+    <meta name="keywords" content="crypto trading bot, telegram bot, solana sniper, ethereum bot, BSC bot, whale tracker, token sniping, crypto snipe bot, nexionsnipe">
+    <meta name="author" content="NexionSnipe">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://nexionsnipe.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="NexionSnipe - Crypto Trading Bot">
+    <meta property="og:description" content="Snipe, track & trade on Solana, Ethereum & BSC. Free Telegram crypto bot.">
+    <meta property="og:url" content="https://nexionsnipe.com/">
+    <meta property="og:site_name" content="NexionSnipe">
+    <meta property="og:image" content="https://nexionsnipe.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NexionSnipe - Crypto Trading Bot">
+    <meta name="twitter:description" content="Snipe, track & trade on Solana, Ethereum & BSC. Free Telegram crypto bot.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "NexionSnipe",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Telegram",
+        "description": "Crypto trading bot for token sniping, whale tracking, and multi-chain trading on Solana, Ethereum, and BNB Chain.",
+        "url": "https://t.me/nexionsnipe_tradingbot",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particles"></canvas>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-mark">A</div>
+                <span class="logo-text">NexionSnipe</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#features">Features</a>
+                <a href="#chains">Chains</a>
+                <a href="#how">How It Works</a>
+                <a href="#faq">FAQ</a>
+                <a href="https://t.me/nexionsnipe_tradingbot" class="btn btn-glow btn-sm" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                    Open Bot
+                </a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-badge" data-reveal>
+                <span class="pulse-dot"></span>
+                Free &middot; No Registration &middot; Instant
+            </div>
+            <h1 data-reveal data-reveal-delay="1">
+                Trade Crypto<br>
+                <span class="gradient-text typing-text" id="typingText"></span>
+                <span class="typing-cursor">|</span>
+            </h1>
+            <p class="hero-sub" data-reveal data-reveal-delay="2">
+                Snipe new tokens the instant they launch. Track whale wallets across chains.
+                Trade smarter with built-in analytics &mdash; all from Telegram.
+            </p>
+            <div class="hero-actions" data-reveal data-reveal-delay="3">
+                <a href="https://t.me/nexionsnipe_tradingbot?start=website" class="btn btn-glow btn-xl magnetic" target="_blank" rel="noopener">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                    Start Trading Now
+                    <span class="btn-shimmer"></span>
+                </a>
+                <a href="#features" class="btn btn-ghost btn-xl">Explore Features</a>
+            </div>
+            <div class="hero-stats" data-reveal data-reveal-delay="4">
+                <div class="hero-stat">
+                    <span class="hero-stat-value" data-count="3">0</span>
+                    <span class="hero-stat-label">Chains</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">24/7</span>
+                    <span class="hero-stat-label">Monitoring</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">&lt;<span data-count="1">0</span>s</span>
+                    <span class="hero-stat-label">Snipe Speed</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">$<span data-count="0">0</span></span>
+                    <span class="hero-stat-label">Fee</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+        </div>
+    </header>
+
+    <div class="marquee-strip">
+        <div class="marquee-track">
+            <span>SOLANA</span><span class="marquee-dot">&#9679;</span>
+            <span>ETHEREUM</span><span class="marquee-dot">&#9679;</span>
+            <span>BNB CHAIN</span><span class="marquee-dot">&#9679;</span>
+            <span>TOKEN SNIPER</span><span class="marquee-dot">&#9679;</span>
+            <span>WHALE TRACKER</span><span class="marquee-dot">&#9679;</span>
+            <span>COPY TRADING</span><span class="marquee-dot">&#9679;</span>
+            <span>AUTO SELL</span><span class="marquee-dot">&#9679;</span>
+            <span>LIVE PRICES</span><span class="marquee-dot">&#9679;</span>
+            <span>SOLANA</span><span class="marquee-dot">&#9679;</span>
+            <span>ETHEREUM</span><span class="marquee-dot">&#9679;</span>
+            <span>BNB CHAIN</span><span class="marquee-dot">&#9679;</span>
+            <span>TOKEN SNIPER</span><span class="marquee-dot">&#9679;</span>
+            <span>WHALE TRACKER</span><span class="marquee-dot">&#9679;</span>
+            <span>COPY TRADING</span><span class="marquee-dot">&#9679;</span>
+            <span>AUTO SELL</span><span class="marquee-dot">&#9679;</span>
+            <span>LIVE PRICES</span><span class="marquee-dot">&#9679;</span>
+        </div>
+    </div>
+
+    <section class="section features" id="features">
+        <div class="container">
+            <div class="section-badge" data-reveal>Features</div>
+            <h2 class="section-title" data-reveal data-reveal-delay="1">
+                Everything You Need to<br><span class="gradient-text">Trade Like a Pro</span>
+            </h2>
+            <p class="section-sub" data-reveal data-reveal-delay="2">
+                Institutional-grade tools, completely free. No hidden fees, no subscriptions.
+            </p>
+            <div class="features-grid">
+                <div class="feature-card glass-card" data-reveal data-reveal-delay="0">
+                    <div class="feature-icon-wrap sol-glow">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h3>Token Sniper</h3>
+                    <p>Snipe new token listings the moment they launch. Configure buy amount, slippage, and priority fees for instant execution.</p>
+                    <div class="feature-tag">Most Popular</div>
+                </div>
+                <div class="feature-card glass-card" data-reveal data-reveal-delay="1">
+                    <div class="feature-icon-wrap eth-glow">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3>Whale Tracker</h3>
+                    <p>Monitor whale wallets in real-time. Get instant alerts when large holders buy or sell across all supported chains.</p>
+                    <div class="feature-tag">Real-Time</div>
+                </div>
+                <div class="feature-card glass-card" data-reveal data-reveal-delay="2">
+                    <div class="feature-icon-wrap bnb-glow">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h3>Live Prices</h3>
+                    <p>Track SOL, ETH, and BNB prices with automatic updates every 90 seconds. Never miss a price movement.</p>
+                    <div class="feature-tag">Auto-Update</div>
+                </div>
+                <div class="feature-card glass-card" data-reveal data-reveal-delay="0">
+                    <div class="feature-icon-wrap sol-glow">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                    </div>
+                    <h3>Secure Wallets</h3>
+                    <p>Create or import wallets directly in Telegram. Private keys are encrypted and stored locally on your device.</p>
+                    <div class="feature-tag">Encrypted</div>
+                </div>
+                <div class="feature-card glass-card" data-reveal data-reveal-delay="1">
+                    <div class="feature-icon-wrap eth-glow">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <h3>Copy Trading</h3>
+                    <p>Automatically mirror the trades of successful wallets. Follow smart money and replicate winning strategies.</p>
+                    <div class="feature-tag">Automated</div>
+                </div>
+                <div class="feature-card glass-card" data-reveal data-reveal-delay="2">
+                    <div class="feature-icon-wrap bnb-glow">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+                    </div>
+                    <h3>Auto Sell & Alerts</h3>
+                    <p>Set take-profit and stop-loss levels. NexionSnipe monitors positions and executes sells automatically when targets hit.</p>
+                    <div class="feature-tag">Set & Forget</div>
+                </div>
+                <div class="feature-card glass-card" data-reveal data-reveal-delay="0">
+                    <div class="feature-icon-wrap sol-glow">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                    </div>
+                    <h3>Multi-Chain</h3>
+                    <p>Trade across Solana, Ethereum, and BNB Chain from one bot. No need to switch apps, extensions, or wallets.</p>
+                    <div class="feature-tag">3 Chains</div>
+                </div>
+                <div class="feature-card glass-card" data-reveal data-reveal-delay="1">
+                    <div class="feature-icon-wrap eth-glow">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                    </div>
+                    <h3>Referral Rewards</h3>
+                    <p>Invite friends and earn rewards for every active user. Share your link and grow the community together.</p>
+                    <div class="feature-tag">Earn More</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section showcase" id="showcase">
+        <div class="container">
+            <div class="showcase-layout">
+                <div class="showcase-text" data-reveal>
+                    <div class="section-badge">Why NexionSnipe</div>
+                    <h2 class="section-title" style="text-align:left">
+                        Built for Speed.<br><span class="gradient-text">Designed for Profit.</span>
+                    </h2>
+                    <p class="section-sub" style="text-align:left;max-width:440px">
+                        Every millisecond matters in crypto. NexionSnipe is engineered from the ground up for sub-second execution, so you never miss a launch.
+                    </p>
+                    <div class="showcase-stats">
+                        <div class="showcase-stat" data-reveal data-reveal-delay="1">
+                            <span class="showcase-stat-num" data-count="99">0</span><span class="showcase-stat-suffix">.9%</span>
+                            <span class="showcase-stat-label">Uptime Reliability</span>
+                        </div>
+                        <div class="showcase-stat" data-reveal data-reveal-delay="2">
+                            <span class="showcase-stat-num" data-count="500">0</span><span class="showcase-stat-suffix">ms</span>
+                            <span class="showcase-stat-label">Avg. Response Time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-phone" data-reveal data-reveal-delay="2">
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="phone-header">
+                                <span class="phone-status-bar">9:41</span>
+                                <div class="phone-header-bar">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                                    <span>NexionSnipe Bot</span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="phone-messages">
+                                <div class="msg msg-bot msg-anim-1">
+                                    <div class="msg-avatar">A</div>
+                                    <div class="msg-bubble">
+                                        Welcome to <strong>NexionSnipe</strong>! Choose an option:
+                                    </div>
+                                </div>
+                                <div class="msg msg-bot msg-anim-2">
+                                    <div class="msg-avatar">A</div>
+                                    <div class="msg-bubble">
+                                        <div class="msg-btn-row">
+                                            <span class="msg-btn">&#128640; Snipe</span>
+                                            <span class="msg-btn">&#128176; Wallet</span>
+                                        </div>
+                                        <div class="msg-btn-row">
+                                            <span class="msg-btn">&#128200; Prices</span>
+                                            <span class="msg-btn">&#128276; Alerts</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="msg msg-user msg-anim-3">
+                                    <div class="msg-bubble">/snipe</div>
+                                </div>
+                                <div class="msg msg-bot msg-anim-4">
+                                    <div class="msg-avatar">A</div>
+                                    <div class="msg-bubble">
+                                        <strong>&#128640; Token Sniper</strong><br>
+                                        <span class="msg-mono">Chain: Solana<br>Amount: 0.5 SOL<br>Slippage: 12%</span><br><br>
+                                        <span class="msg-success">&#9989; Ready to snipe</span>
+                                    </div>
+                                </div>
+                                <div class="msg msg-bot msg-anim-5">
+                                    <div class="msg-avatar">A</div>
+                                    <div class="msg-bubble msg-highlight">
+                                        &#9889; <strong>SNIPE EXECUTED</strong><br>
+                                        <span class="msg-mono">Bought 1,247 TOKENS<br>Price: $0.00042<br>Gas: 0.001 SOL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section chains" id="chains">
+        <div class="container">
+            <div class="section-badge" data-reveal>Supported Chains</div>
+            <h2 class="section-title" data-reveal data-reveal-delay="1">
+                Trade Across<br><span class="gradient-text">Every Major Chain</span>
+            </h2>
+            <p class="section-sub" data-reveal data-reveal-delay="2">
+                One bot. Three blockchains. Unlimited opportunities.
+            </p>
+            <div class="chains-grid">
+                <div class="chain-card glass-card" data-reveal data-reveal-delay="0">
+                    <div class="chain-glow sol"></div>
+                    <div class="chain-logo">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--sol)"><path d="M4.6 16.2l14.8-3.6c.8-.2.8-.6 0-.8L4.6 8.2c-.8-.2-1.2.2-1.2.6v7.6c0 .4.4.8.8.6zm14.8-12l-14.8 3.6c-.8.2-.8.6 0 .8l14.8 3.6c.8.2 1.2-.2 1.2-.6V4.8c0-.4-.4-.8-.8-.6zM4.6 16.2l14.8 3.6c.8.2.8.6 0 .8L4.6 24.6c-.8.2-1.2-.2-1.2-.6v-7.6c0-.4.4-.8.8-.6z"/></svg>
+                    </div>
+                    <h3>Solana</h3>
+                    <p>Lightning-fast transactions with minimal fees. Perfect for sniping new SPL tokens on launch.</p>
+                    <div class="chain-tag">~400ms finality</div>
+                </div>
+                <div class="chain-card glass-card" data-reveal data-reveal-delay="1">
+                    <div class="chain-glow eth"></div>
+                    <div class="chain-logo">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--eth)"><path d="M12 1.5l-8 13 8 4.5 8-4.5-8-13zm-8 15l8 4.5 8-4.5-8 7-8-7z"/></svg>
+                    </div>
+                    <h3>Ethereum</h3>
+                    <p>The largest DeFi ecosystem. Trade ERC-20 tokens with configurable priority fees and gas optimization.</p>
+                    <div class="chain-tag">L1 King</div>
+                </div>
+                <div class="chain-card glass-card" data-reveal data-reveal-delay="2">
+                    <div class="chain-glow bnb"></div>
+                    <div class="chain-logo">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--bnb)"><path d="M12 2L6 8l6 6 6-6-6-6zm0 10l-6 6 6 6 6-6-6-6z"/></svg>
+                    </div>
+                    <h3>BNB Chain</h3>
+                    <p>Low-cost, high-speed trading on Binance Smart Chain. Ideal for BEP-20 token sniping.</p>
+                    <div class="chain-tag">Low Fees</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section how" id="how">
+        <div class="container">
+            <div class="section-badge" data-reveal>Get Started</div>
+            <h2 class="section-title" data-reveal data-reveal-delay="1">
+                Start Trading in<br><span class="gradient-text">3 Simple Steps</span>
+            </h2>
+            <div class="steps-grid">
+                <div class="step-card" data-reveal data-reveal-delay="0">
+                    <div class="step-num">01</div>
+                    <div class="step-line"></div>
+                    <h3>Open the Bot</h3>
+                    <p>Click the button to open NexionSnipe in Telegram. No downloads, no sign-ups, no installs.</p>
+                </div>
+                <div class="step-card" data-reveal data-reveal-delay="1">
+                    <div class="step-num">02</div>
+                    <div class="step-line"></div>
+                    <h3>Set Up Your Wallet</h3>
+                    <p>Create a new wallet or import an existing one. Your keys stay encrypted on your device.</p>
+                </div>
+                <div class="step-card" data-reveal data-reveal-delay="2">
+                    <div class="step-num">03</div>
+                    <h3>Snipe & Trade</h3>
+                    <p>Configure your sniper, set alerts, and start trading. It's that simple.</p>
+                </div>
+            </div>
+            <div class="cta-section" data-reveal data-reveal-delay="3">
+                <div class="cta-card glass-card">
+                    <div class="cta-glow"></div>
+                    <h3>Ready to Trade Smarter?</h3>
+                    <p>Join thousands of traders using NexionSnipe on Telegram.</p>
+                    <a href="https://t.me/nexionsnipe_tradingbot?start=website" class="btn btn-glow btn-xl magnetic" target="_blank" rel="noopener">
+                        Launch NexionSnipe Bot
+                        <span class="btn-shimmer"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section faq" id="faq">
+        <div class="container">
+            <div class="section-badge" data-reveal>FAQ</div>
+            <h2 class="section-title" data-reveal data-reveal-delay="1">
+                Frequently Asked<br><span class="gradient-text">Questions</span>
+            </h2>
+            <div class="faq-list" data-reveal data-reveal-delay="2">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is NexionSnipe free to use?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, NexionSnipe is completely free. There are no subscription fees, no hidden charges, and no registration required. You only pay network gas fees for blockchain transactions.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How fast is the token sniper?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>NexionSnipe is optimized for sub-second execution. On Solana, snipes typically execute in under 500ms. On Ethereum and BSC, execution depends on gas settings and network congestion.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is my wallet secure?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. Your private keys are encrypted and stored locally on your device. NexionSnipe never has access to your keys. You can also export or delete your wallet at any time.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Which chains are supported?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>NexionSnipe currently supports Solana, Ethereum, and BNB Chain. We're actively working on adding more chains based on community demand.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How does the whale tracker work?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The whale tracker monitors on-chain transactions in real-time. When wallets above your configured threshold buy or sell, you get an instant alert in Telegram with full transaction details.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-mark">A</div>
+                        <span class="logo-text">NexionSnipe</span>
+                    </a>
+                    <p>The ultimate crypto trading bot for Telegram. Free, fast, and secure.</p>
+                    <a href="https://t.me/nexionsnipe_tradingbot" class="btn btn-glow btn-sm" target="_blank" rel="noopener" style="margin-top:12px">
+                        Open Bot
+                    </a>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#chains">Chains</a>
+                    <a href="#how">How It Works</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <a href="https://t.me/nexionsnipe_tradingbot" target="_blank" rel="noopener">Telegram Bot</a>
+                    <a href="https://t.me/nexionsnipe_tradingbot?start=website" target="_blank" rel="noopener">Start Bot</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NexionSnipe. All rights reserved.</p>
+                <p class="disclaimer">Trading crypto involves risk. Never invest more than you can afford to lose. This is not financial advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
