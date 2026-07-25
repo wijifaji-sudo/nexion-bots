@@ -1,0 +1,17 @@
+services:
+  - type: worker
+    name: nexionsnipe-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.12"
+      - key: GITHUB_PAT
+        sync: false
+      - key: GITHUB_GIST_ID
+        sync: false
+      - key: USER_DATA_DIR
+        value: user_data
